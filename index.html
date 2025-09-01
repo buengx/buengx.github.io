@@ -13,6 +13,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#repositories">Repositories</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -34,6 +35,20 @@
                 <li>Basic JavaScript interactivity</li>
                 <li>GitHub Pages compatibility</li>
             </ul>
+        </section>
+
+        <section id="repositories" class="content-section">
+            <h2>My GitHub Repositories</h2>
+            <p>Here are my public repositories from GitHub:</p>
+            <div id="repositories-loading" class="loading-state">
+                <p>Loading repositories...</p>
+            </div>
+            <div id="repositories-error" class="error-state" style="display: none;">
+                <p>Unable to load repositories. Please try again later.</p>
+            </div>
+            <div id="repositories-list" class="repositories-grid" style="display: none;">
+                <!-- Repositories will be dynamically loaded here -->
+            </div>
         </section>
 
         <section id="contact" class="content-section">
