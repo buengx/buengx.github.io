@@ -1,0 +1,27 @@
+# Allow all bots by default
+User-agent: *
+Allow: /
+
+# Explicitly allow specific useful bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://buengx.github.io/sitemap.xml
