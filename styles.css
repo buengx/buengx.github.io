@@ -193,3 +193,121 @@ footer {
 .hero, .content-section {
     animation: fadeInUp 0.6s ease-out;
 }
+
+/* Repository styles */
+.repositories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.repository-card {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.repository-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.repository-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.repository-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0366d6;
+    text-decoration: none;
+    margin: 0;
+    flex: 1;
+}
+
+.repository-name:hover {
+    text-decoration: underline;
+}
+
+.repository-visibility {
+    font-size: 0.75rem;
+    color: #586069;
+    border: 1px solid #d1d5da;
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.repository-description {
+    color: #586069;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.repository-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #586069;
+    margin-top: auto;
+}
+
+.repository-language {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.language-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.repository-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.loading-state, .error-state {
+    text-align: center;
+    padding: 2rem;
+    color: #586069;
+}
+
+.error-state {
+    color: #d73a49;
+}
+
+/* Language colors */
+.lang-javascript { background-color: #f1e05a; }
+.lang-python { background-color: #3572A5; }
+.lang-html { background-color: #e34c26; }
+.lang-css { background-color: #1572B6; }
+.lang-typescript { background-color: #2b7489; }
+.lang-java { background-color: #b07219; }
+.lang-go { background-color: #00ADD8; }
+.lang-rust { background-color: #dea584; }
+.lang-cpp { background-color: #f34b7d; }
+.lang-c { background-color: #555555; }
+.lang-default { background-color: #586069; }
