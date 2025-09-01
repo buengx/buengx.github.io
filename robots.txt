@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://buengx.github.io/sitemap.xml
