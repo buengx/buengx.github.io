@@ -1,51 +1,135 @@
-# buengx.github.io
+# Buengx Personal Website
 
-A test GitHub Pages site for development and testing purposes.
+A modern Jekyll-powered personal website and blog hosted on GitHub Pages.
 
-## About
+## ✨ Features
 
-This is a basic static website hosted on GitHub Pages. It serves as a foundation for testing and development.
+- **Jekyll-powered blog** with Markdown support
+- **Responsive design** that looks great on all devices
+- **SEO optimized** with Jekyll SEO Tag
+- **RSS feed** for blog subscribers
+- **GitHub repositories integration** with live API
+- **Clean, modern design** with purple gradient styling
+- **Fast loading** static site generation
 
-## Features
+## 🚀 Getting Started
 
-- **Responsive Design**: Works on desktop and mobile devices
-- **Modern CSS**: Uses CSS Grid, Flexbox, and modern styling techniques
-- **Interactive Elements**: JavaScript functionality for user interaction
-- **GitHub Pages Ready**: Optimized for GitHub Pages hosting
+### Prerequisites
 
-## Site Structure
+- Ruby 3.0 or higher
+- Bundler gem
 
-- `index.html` - Main homepage
-- `styles.css` - CSS styling and responsive design
-- `script.js` - JavaScript functionality and interactions
-- `README.md` - This documentation
+### Local Development
 
-## Local Development
-
-To view the site locally, you can:
-
-1. Clone this repository
-2. Open `index.html` in your web browser
-3. Or serve it with a local server:
+1. Clone the repository:
    ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx http-server
+   git clone https://github.com/buengx/buengx.github.io.git
+   cd buengx.github.io
    ```
 
-## GitHub Pages
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-This site is automatically deployed to GitHub Pages at: `https://buengx.github.io`
+3. Serve the site locally:
+   ```bash
+   bundle exec jekyll serve
+   ```
 
-## Testing
+4. Open your browser to `http://localhost:4000`
 
-The site includes:
-- Interactive test button
-- Responsive design testing
-- Console logging for debugging
-- Smooth scroll navigation
-- Fade-in animations
+### Writing Blog Posts
 
-Click the "Click me for a test!" button on the homepage to test JavaScript functionality.
+Create new blog posts in the `_posts` directory using the following naming convention:
+```
+YYYY-MM-DD-title-of-post.md
+```
+
+Example front matter:
+```yaml
+---
+layout: post
+title: "Your Post Title"
+date: 2024-09-02 12:00:00 -0000
+categories: [category1, category2]
+tags: [tag1, tag2, tag3]
+author: "Your Name"
+description: "Brief description of your post"
+---
+
+Your content here...
+```
+
+## 📁 Site Structure
+
+```
+├── _config.yml          # Jekyll configuration
+├── _layouts/             # HTML templates
+│   ├── default.html      # Main site layout
+│   └── post.html         # Blog post layout
+├── _posts/               # Blog posts
+├── _sass/                # Sass stylesheets
+│   ├── _main.scss        # Main styles
+│   └── _blog.scss        # Blog-specific styles
+├── assets/
+│   ├── css/
+│   │   └── styles.scss   # Main stylesheet
+│   └── js/
+│       └── main.js       # JavaScript functionality
+├── blog/                 # Blog index page
+├── index.html            # Homepage
+├── Gemfile              # Ruby dependencies
+└── .gitignore           # Git ignore rules
+```
+
+## 🎨 Customization
+
+### Colors and Styling
+
+The site uses a purple gradient theme defined in `_sass/_main.scss`. Key color variables:
+- Primary gradient: `#667eea` to `#764ba2`
+- Background: `#f8f9fa`
+- Text: `#333`
+
+### Navigation
+
+Update the navigation in `_layouts/default.html` to add or modify menu items.
+
+### Site Configuration
+
+Modify `_config.yml` to update:
+- Site title and description
+- Author information
+- Social links
+- Jekyll plugins
+
+## 🚀 Deployment
+
+This site is automatically deployed to GitHub Pages when changes are pushed to the main branch. No additional configuration is needed.
+
+The live site is available at: [https://buengx.github.io](https://buengx.github.io)
+
+## 🛠️ Built With
+
+- **Jekyll 4.4+** - Static site generator
+- **GitHub Pages** - Hosting and deployment
+- **Sass/SCSS** - CSS preprocessing
+- **Liquid** - Templating engine
+- **Markdown** - Content authoring
+- **Jekyll Plugins**:
+  - jekyll-feed (RSS feeds)
+  - jekyll-sitemap (XML sitemaps)
+  - jekyll-seo-tag (SEO optimization)
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to fork this repository and submit pull requests for any improvements!
+
+---
+
+⭐ **Star this repository if you found it helpful!**

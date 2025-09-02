@@ -1,69 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buengx - Test Site</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <h1>Buengx Test Site</h1>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#repositories">Repositories</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+---
+layout: default
+title: "Home"
+description: "Personal website and blog for software development, projects, and insights"
+---
 
-    <main>
-        <section id="home" class="hero">
-            <h2>Welcome to Buengx</h2>
-            <p>This is a test site for GitHub Pages setup.</p>
-            <button id="testButton" class="cta-button">Click me for a test!</button>
-        </section>
+<section id="home" class="hero">
+    <h2>Welcome to {{ site.title }}</h2>
+    <p>{{ site.description }}</p>
+    <div class="hero-buttons">
+        <a href="{{ '/blog/' | relative_url }}" class="cta-button">Read My Blog</a>
+        <a href="{{ '/#repositories' | relative_url }}" class="cta-button-secondary">View Projects</a>
+    </div>
+</section>
 
-        <section id="about" class="content-section">
-            <h2>About This Site</h2>
-            <p>This is a basic test site created to verify GitHub Pages functionality. It includes:</p>
-            <ul>
-                <li>Responsive HTML structure</li>
-                <li>CSS styling</li>
-                <li>Basic JavaScript interactivity</li>
-                <li>GitHub Pages compatibility</li>
-            </ul>
-        </section>
-
-        <section id="repositories" class="content-section">
-            <h2>My GitHub Repositories</h2>
-            <p>Here are my public repositories from GitHub:</p>
-            <div id="repositories-loading" class="loading-state">
-                <p>Loading repositories...</p>
+<section id="about" class="content-section">
+    <h2>About This Site</h2>
+    <p>Welcome to my personal website! This site is built with Jekyll and showcases:</p>
+    <ul>
+        <li>Modern Jekyll-powered blog functionality</li>
+        <li>Responsive design and clean aesthetics</li>
+        <li>GitHub repositories integration</li>
+        <li>SEO optimization and fast loading</li>
+        <li>Easy content management with Markdown</li>
+    </ul>
+    
+    <div class="recent-posts">
+        <h3>Recent Blog Posts</h3>
+        {% if site.posts.size > 0 %}
+            <div class="posts-preview">
+                {% for post in site.posts limit:3 %}
+                    <article class="post-preview">
+                        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+                        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                        <div class="post-meta">
+                            <time>{{ post.date | date: "%B %d, %Y" }}</time>
+                        </div>
+                    </article>
+                {% endfor %}
             </div>
-            <div id="repositories-error" class="error-state" style="display: none;">
-                <p>Unable to load repositories. Please try again later.</p>
-            </div>
-            <div id="repositories-list" class="repositories-grid" style="display: none;">
-                <!-- Repositories will be dynamically loaded here -->
-            </div>
-        </section>
+            <p class="view-all-posts">
+                <a href="{{ '/blog/' | relative_url }}">View all posts &rarr;</a>
+            </p>
+        {% else %}
+            <p>No blog posts yet. Check back soon!</p>
+        {% endif %}
+    </div>
+</section>
 
-        <section id="contact" class="content-section">
-            <h2>Contact Information</h2>
-            <p>This is a test site. For more information, visit the repository.</p>
-            <div class="status-display">
-                <p id="status">Site status: <span class="status-indicator">Active</span></p>
-            </div>
-        </section>
-    </main>
+<section id="repositories" class="content-section">
+    <h2>My GitHub Projects</h2>
+    <p>Here are some of my open source projects and repositories:</p>
+    <div id="repositories-loading" class="loading-state">
+        <p>Loading repositories...</p>
+    </div>
+    <div id="repositories-error" class="error-state" style="display: none;">
+        <p>Unable to load repositories. Please try again later.</p>
+    </div>
+    <div id="repositories-list" class="repositories-grid" style="display: none;">
+        <!-- Repositories will be dynamically loaded here -->
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Buengx Test Site. Built with GitHub Pages.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<section id="contact" class="content-section">
+    <h2>Get In Touch</h2>
+    <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+    <div class="contact-links">
+        <a href="https://github.com/buengx" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-icon">📧</span>
+            GitHub Profile
+        </a>
+        <a href="{{ '/blog/' | relative_url }}" class="contact-link">
+            <span class="contact-icon">📝</span>
+            Read My Blog
+        </a>
+    </div>
+    <div class="status-display">
+        <p id="status">Site status: <span class="status-indicator">Active</span></p>
+    </div>
+</section>
