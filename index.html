@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buengx - Test Site</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+    <!-- reCAPTCHA Overlay -->
+    <div id="captcha-overlay" class="captcha-overlay">
+        <div class="captcha-container">
+            <div class="captcha-content">
+                <h2>Security Verification</h2>
+                <p>Please complete the security verification to access this site:</p>
+                <div class="g-recaptcha" data-sitekey="6LcyKrwrAAAAACUbG8iB8_p1XEoQ94HlASPPLEH8" data-callback="onCaptchaVerified"></div>
+                <div id="captcha-error" class="captcha-error" style="display: none;">
+                    <p>Please complete the CAPTCHA verification above.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Site Content (initially hidden) -->
+    <div id="main-content" class="main-content-hidden">
     <header>
         <nav>
             <h1>Buengx Test Site</h1>
@@ -63,6 +80,8 @@
     <footer>
         <p>&copy; 2024 Buengx Test Site. Built with GitHub Pages.</p>
     </footer>
+    </div>
+    <!-- End Main Site Content -->
 
     <script src="script.js"></script>
 </body>
