@@ -1,3 +1,46 @@
+// reCAPTCHA functionality
+function onCaptchaVerified(response) {
+    console.log('CAPTCHA verified successfully');
+    
+    // Store verification state in session storage
+    sessionStorage.setItem('captcha_verified', 'true');
+    
+    // Hide overlay and show main content
+    showMainContent();
+}
+
+function showMainContent() {
+    const overlay = document.getElementById('captcha-overlay');
+    const mainContent = document.getElementById('main-content');
+    
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+    
+    if (mainContent) {
+        mainContent.classList.remove('main-content-hidden');
+        mainContent.classList.add('main-content-visible');
+    }
+}
+
+function checkCaptchaVerification() {
+    // Check if user has already verified in this session
+    const isVerified = sessionStorage.getItem('captcha_verified') === 'true';
+    
+    if (isVerified) {
+        console.log('User already verified in this session');
+        showMainContent();
+    } else {
+        console.log('CAPTCHA verification required');
+        // Overlay will be shown by default in HTML
+    }
+}
+
+// Check verification status when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    checkCaptchaVerification();
+});
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Buengx Test Site loaded successfully!');
