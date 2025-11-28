@@ -3,79 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buengx</title>
+    <title>Buengx - Software Developer</title>
+    <meta name="description" content="Personal website of Buengx - Software Developer passionate about building innovative solutions.">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
         <nav>
             <h1>Buengx</h1>
-            <ul id="main-nav" class="main-nav-hidden">
+            <ul id="main-nav">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#repositories">Repositories</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#repositories">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- CAPTCHA Section (shown when not verified) -->
-        <section id="captcha-section" class="captcha-section">
-            <h2>Security Verification</h2>
-            <p>Please complete the security verification to access this site:</p>
-            <div class="g-recaptcha" data-sitekey="6LcyKrwrAAAAACUbG8iB8_p1XEoQ94HlASPPLEH8" data-callback="onCaptchaVerified"></div>
-            <div id="captcha-error" class="captcha-error" style="display: none;">
-                <p>Please complete the CAPTCHA verification above.</p>
+        <section id="home" class="hero">
+            <h2>Hello, I'm Buengx</h2>
+            <p>A passionate software developer who loves creating innovative solutions and building meaningful projects.</p>
+            <a href="#about" class="cta-button">Learn More About Me</a>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>I'm a software developer with a passion for technology and continuous learning. I enjoy tackling complex problems and turning ideas into reality through code.</p>
+            <p>My journey in software development has taught me the importance of clean code, user-centric design, and staying curious about new technologies. I believe in building solutions that make a difference.</p>
+            <p>When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and sharing knowledge with the developer community.</p>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2>Skills & Technologies</h2>
+            <p>Here are some of the technologies and tools I work with:</p>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>JavaScript / TypeScript</li>
+                        <li>Python</li>
+                        <li>HTML & CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Linux / Command Line</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Interests</h3>
+                    <ul class="skill-list">
+                        <li>Web Development</li>
+                        <li>Open Source</li>
+                        <li>Automation</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- Main Site Content (initially hidden) -->
-        <div id="main-content" class="main-content-hidden">
-            <section id="home" class="content-section">
-                <h2>Welcome to Buengx</h2>
-                <p>This is a test site for GitHub Pages setup.</p>
-                <button id="testButton" class="cta-button">Click me for a test!</button>
-            </section>
+        <section id="repositories" class="content-section">
+            <h2>My Projects</h2>
+            <p>Check out some of my public repositories on GitHub:</p>
+            <div id="repositories-loading" class="loading-state">
+                <p>Loading repositories...</p>
+            </div>
+            <div id="repositories-error" class="error-state" style="display: none;">
+                <p>Unable to load repositories. Please try again later.</p>
+            </div>
+            <div id="repositories-list" class="repositories-grid" style="display: none;">
+                <!-- Repositories will be dynamically loaded here -->
+            </div>
+        </section>
 
-            <section id="about" class="content-section">
-                <h2>About This Site</h2>
-                <p>This is a basic test site created to verify GitHub Pages functionality. It includes:</p>
-                <ul>
-                    <li>Responsive HTML structure</li>
-                    <li>CSS styling</li>
-                    <li>Basic JavaScript interactivity</li>
-                    <li>GitHub Pages compatibility</li>
-                </ul>
-            </section>
-
-            <section id="repositories" class="content-section">
-                <h2>My GitHub Repositories</h2>
-                <p>Here are my public repositories from GitHub:</p>
-                <div id="repositories-loading" class="loading-state">
-                    <p>Loading repositories...</p>
-                </div>
-                <div id="repositories-error" class="error-state" style="display: none;">
-                    <p>Unable to load repositories. Please try again later.</p>
-                </div>
-                <div id="repositories-list" class="repositories-grid" style="display: none;">
-                    <!-- Repositories will be dynamically loaded here -->
-                </div>
-            </section>
-
-            <section id="contact" class="content-section">
-                <h2>Contact Information</h2>
-                <p>This is a test site. For more information, visit the repository.</p>
-                <div class="status-display">
-                    <p id="status">Site status: <span class="status-indicator">Active</span></p>
-                </div>
-            </section>
-        </div>
+        <section id="contact" class="content-section">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+            <div class="contact-links">
+                <a href="https://github.com/buengx" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <span class="contact-icon">🐙</span>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Buengx. Built with GitHub Pages.</p>
+        <p>&copy; 2024 Buengx. Built with ❤️ and GitHub Pages.</p>
     </footer>
 
     <script src="script.js"></script>
