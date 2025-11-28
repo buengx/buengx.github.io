@@ -12,70 +12,6 @@ body {
     background-color: #f8f9fa;
 }
 
-/* CAPTCHA Section Styles */
-.captcha-section {
-    text-align: center;
-    background: white;
-    padding: 3rem;
-    margin: 2rem auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-}
-
-.captcha-section h2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-}
-
-.captcha-section p {
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-.captcha-error {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-}
-
-.captcha-error p {
-    margin: 0;
-}
-
-/* Hide main content initially */
-.main-content-hidden {
-    display: none;
-}
-
-/* Show main content after verification */
-.main-content-visible {
-    display: block;
-}
-
-/* Hide navigation initially */
-.main-nav-hidden {
-    display: none;
-}
-
-/* Show navigation after verification */
-.main-nav-visible {
-    display: flex;
-}
-
-/* Responsive CAPTCHA */
-@media (max-width: 480px) {
-    .captcha-section {
-        padding: 2rem 1.5rem;
-        margin: 1rem;
-    }
-    
-    .captcha-section h2 {
-        font-size: 1.5rem;
-    }
-}
-
 /* Header and Navigation */
 header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -401,4 +337,85 @@ footer {
     font-size: 1.5rem;
     color: #7f8c8d;
     margin-bottom: 2rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.skill-category {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.skill-category h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skill-list li {
+    padding: 0.5rem 0;
+    color: #555;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive adjustments for skills */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+    }
+    
+    .contact-link {
+        justify-content: center;
+    }
 }
