@@ -5,21 +5,27 @@ function onCaptchaVerified(response) {
     // Store verification state in session storage
     sessionStorage.setItem('captcha_verified', 'true');
     
-    // Hide overlay and show main content
+    // Hide CAPTCHA section and show main content
     showMainContent();
 }
 
 function showMainContent() {
-    const overlay = document.getElementById('captcha-overlay');
+    const captchaSection = document.getElementById('captcha-section');
     const mainContent = document.getElementById('main-content');
+    const mainNav = document.getElementById('main-nav');
     
-    if (overlay) {
-        overlay.style.display = 'none';
+    if (captchaSection) {
+        captchaSection.style.display = 'none';
     }
     
     if (mainContent) {
         mainContent.classList.remove('main-content-hidden');
         mainContent.classList.add('main-content-visible');
+    }
+    
+    if (mainNav) {
+        mainNav.classList.remove('main-nav-hidden');
+        mainNav.classList.add('main-nav-visible');
     }
 }
 
@@ -32,7 +38,7 @@ function checkCaptchaVerification() {
         showMainContent();
     } else {
         console.log('CAPTCHA verification required');
-        // Overlay will be shown by default in HTML
+        // CAPTCHA section will be shown by default in HTML
     }
 }
 
@@ -43,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Buengx Test Site loaded successfully!');
+    console.log('Buengx loaded successfully!');
     
     // Test button functionality
     const testButton = document.getElementById('testButton');
@@ -129,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Display some basic site info in console for debugging
-    console.log('=== Buengx Test Site Debug Info ===');
+    console.log('=== Buengx Debug Info ===');
     console.log('URL:', window.location.href);
     console.log('User Agent:', navigator.userAgent);
     console.log('Screen Resolution:', `${screen.width}x${screen.height}`);

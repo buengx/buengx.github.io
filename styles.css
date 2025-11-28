@@ -12,37 +12,24 @@ body {
     background-color: #f8f9fa;
 }
 
-/* reCAPTCHA Overlay Styles */
-.captcha-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.captcha-container {
+/* CAPTCHA Section Styles */
+.captcha-section {
+    text-align: center;
     background: white;
     padding: 3rem;
+    margin: 2rem auto;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
 }
 
-.captcha-content h2 {
+.captcha-section h2 {
     color: #2c3e50;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
-.captcha-content p {
+.captcha-section p {
     color: #555;
     margin-bottom: 2rem;
 }
@@ -67,15 +54,25 @@ body {
     display: block;
 }
 
+/* Hide navigation initially */
+.main-nav-hidden {
+    display: none;
+}
+
+/* Show navigation after verification */
+.main-nav-visible {
+    display: flex;
+}
+
 /* Responsive CAPTCHA */
 @media (max-width: 480px) {
-    .captcha-container {
+    .captcha-section {
         padding: 2rem 1.5rem;
         margin: 1rem;
     }
     
-    .captcha-content h2 {
-        font-size: 1.3rem;
+    .captcha-section h2 {
+        font-size: 1.5rem;
     }
 }
 
@@ -158,6 +155,9 @@ main {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Anchor-specific styling for when used on <a> elements */
+    display: inline-block;
+    text-decoration: none;
 }
 
 .cta-button:hover {
@@ -378,3 +378,27 @@ footer {
 .lang-cpp { background-color: #f34b7d; }
 .lang-c { background-color: #555555; }
 .lang-default { background-color: #586069; }
+
+/* 404 Error Page Styles */
+.error-page {
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}

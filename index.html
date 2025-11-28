@@ -3,31 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buengx - Test Site</title>
+    <title>Buengx</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <!-- reCAPTCHA Overlay -->
-    <div id="captcha-overlay" class="captcha-overlay">
-        <div class="captcha-container">
-            <div class="captcha-content">
-                <h2>Security Verification</h2>
-                <p>Please complete the security verification to access this site:</p>
-                <div class="g-recaptcha" data-sitekey="6LcyKrwrAAAAACUbG8iB8_p1XEoQ94HlASPPLEH8" data-callback="onCaptchaVerified"></div>
-                <div id="captcha-error" class="captcha-error" style="display: none;">
-                    <p>Please complete the CAPTCHA verification above.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Site Content (initially hidden) -->
-    <div id="main-content" class="main-content-hidden">
     <header>
         <nav>
-            <h1>Buengx Test Site</h1>
-            <ul>
+            <h1>Buengx</h1>
+            <ul id="main-nav" class="main-nav-hidden">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#repositories">Repositories</a></li>
@@ -37,51 +21,62 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <h2>Welcome to Buengx</h2>
-            <p>This is a test site for GitHub Pages setup.</p>
-            <button id="testButton" class="cta-button">Click me for a test!</button>
-        </section>
-
-        <section id="about" class="content-section">
-            <h2>About This Site</h2>
-            <p>This is a basic test site created to verify GitHub Pages functionality. It includes:</p>
-            <ul>
-                <li>Responsive HTML structure</li>
-                <li>CSS styling</li>
-                <li>Basic JavaScript interactivity</li>
-                <li>GitHub Pages compatibility</li>
-            </ul>
-        </section>
-
-        <section id="repositories" class="content-section">
-            <h2>My GitHub Repositories</h2>
-            <p>Here are my public repositories from GitHub:</p>
-            <div id="repositories-loading" class="loading-state">
-                <p>Loading repositories...</p>
-            </div>
-            <div id="repositories-error" class="error-state" style="display: none;">
-                <p>Unable to load repositories. Please try again later.</p>
-            </div>
-            <div id="repositories-list" class="repositories-grid" style="display: none;">
-                <!-- Repositories will be dynamically loaded here -->
+        <!-- CAPTCHA Section (shown when not verified) -->
+        <section id="captcha-section" class="captcha-section">
+            <h2>Security Verification</h2>
+            <p>Please complete the security verification to access this site:</p>
+            <div class="g-recaptcha" data-sitekey="6LcyKrwrAAAAACUbG8iB8_p1XEoQ94HlASPPLEH8" data-callback="onCaptchaVerified"></div>
+            <div id="captcha-error" class="captcha-error" style="display: none;">
+                <p>Please complete the CAPTCHA verification above.</p>
             </div>
         </section>
 
-        <section id="contact" class="content-section">
-            <h2>Contact Information</h2>
-            <p>This is a test site. For more information, visit the repository.</p>
-            <div class="status-display">
-                <p id="status">Site status: <span class="status-indicator">Active</span></p>
-            </div>
-        </section>
+        <!-- Main Site Content (initially hidden) -->
+        <div id="main-content" class="main-content-hidden">
+            <section id="home" class="content-section">
+                <h2>Welcome to Buengx</h2>
+                <p>This is a test site for GitHub Pages setup.</p>
+                <button id="testButton" class="cta-button">Click me for a test!</button>
+            </section>
+
+            <section id="about" class="content-section">
+                <h2>About This Site</h2>
+                <p>This is a basic test site created to verify GitHub Pages functionality. It includes:</p>
+                <ul>
+                    <li>Responsive HTML structure</li>
+                    <li>CSS styling</li>
+                    <li>Basic JavaScript interactivity</li>
+                    <li>GitHub Pages compatibility</li>
+                </ul>
+            </section>
+
+            <section id="repositories" class="content-section">
+                <h2>My GitHub Repositories</h2>
+                <p>Here are my public repositories from GitHub:</p>
+                <div id="repositories-loading" class="loading-state">
+                    <p>Loading repositories...</p>
+                </div>
+                <div id="repositories-error" class="error-state" style="display: none;">
+                    <p>Unable to load repositories. Please try again later.</p>
+                </div>
+                <div id="repositories-list" class="repositories-grid" style="display: none;">
+                    <!-- Repositories will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <section id="contact" class="content-section">
+                <h2>Contact Information</h2>
+                <p>This is a test site. For more information, visit the repository.</p>
+                <div class="status-display">
+                    <p id="status">Site status: <span class="status-indicator">Active</span></p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Buengx Test Site. Built with GitHub Pages.</p>
+        <p>&copy; 2024 Buengx. Built with GitHub Pages.</p>
     </footer>
-    </div>
-    <!-- End Main Site Content -->
 
     <script src="script.js"></script>
 </body>
