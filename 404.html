@@ -32,7 +32,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Buengx. Built with ❤️ and GitHub Pages.</p>
+        <p>&copy; <span id="current-year"></span> Buengx. Built with ❤️ and GitHub Pages.</p>
     </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
