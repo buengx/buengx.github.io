@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Browser Lock</title>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin-top:50px;
+}
+</style>
+</head>
+<body>
+
+<h1>Browser Lock</h1>
+
+<script>
+
+const QUESTION = "What's the Password?";
+const ANSWER = "240676";
+
+let popup = null;
+let completed = false;
+
+// --------------------
+// URL LOCK MANAGEMENT
+// --------------------
+
+function setLock() {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lock", "true");
+    history.replaceState({}, "", url);
+}
+
+function clearLock() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("lock");
+    history.replaceState({}, "", url);
+}
+
+// --------------------
+// OPEN EXAM WINDOW
+// --------------------
+
+function startExam() {
+
+    if (completed) return;
+
+    popup = window.open(
+        "",
+        "ExamWindow",
+        "popup=yes,width=900,height=700"
+    );
+
+    if (!popup) {
+        alert("Popup blocked.");
+        return;
+    }
+
+    setLock();
+
+    // Force screen-sized popup
+    try {
+        popup.moveTo(0, 0);
+        popup.resizeTo(screen.width, screen.height);
+        popup.focus();
+    } catch (e) {
+        console.error(e);
+    }
+
+    // Keep trying for a few seconds
+    let resizeAttempts = 0;
+
+    const resizeLoop = setInterval(() => {
+
+        if (
+            !popup ||
+            popup.closed ||
+            resizeAttempts > 20
+        ) {
+            clearInterval(resizeLoop);
+            return;
+        }
+
+        try {
+            popup.moveTo(0, 0);
+            popup.resizeTo(
+                screen.width,
+                screen.height
+            );
+        } catch (e) {}
+
+        resizeAttempts++;
+
+    }, 250);
+
+    popup.document.open();
+
+    popup.document.write(`
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Locked!</title>
+
+<style>
+
+html,
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+}
+
+#box{
+    text-align:center;
+}
+
+h1{
+    font-size:3rem;
+}
+
+input{
+    font-size:2rem;
+    padding:10px;
+}
+
+button{
+    font-size:2rem;
+    padding:10px 20px;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="box">
+
+<h1>${QUESTION}</h1>
+
+<input
+    id="ans"
+    autofocus
+>
+
+<br>
+
+<button onclick="submitAnswer()">
+Submit
+</button>
+
+</div>
+
+<script>
+
+function submitAnswer() {
+
+    const value =
+        document
+        .getElementById("ans")
+        .value
+        .trim();
+
+    if (
+        value ===
+        ${JSON.stringify(ANSWER)}
+    ) {
+
+        if (window.opener) {
+            window.opener.postMessage(
+                "done",
+                "*"
+            );
+        }
+
+        window.close();
+
+    } else {
+
+        alert("Incorrect");
+
+    }
+}
+
+// Close if focus lost
+window.addEventListener(
+    "blur",
+    () => {
+        window.close();
+    }
+);
+
+// Enter key
+document
+.getElementById("ans")
+.addEventListener(
+    "keydown",
+    (e) => {
+
+        if (e.key === "Enter") {
+            submitAnswer();
+        }
+
+    }
+);
+
+window.focus();
+
+<\/script>
+
+</body>
+</html>
+    `);
+
+    popup.document.close();
+
+    const watcher = setInterval(() => {
+
+        if (completed) {
+            clearInterval(watcher);
+            return;
+        }
+
+        if (!popup || popup.closed) {
+
+            clearInterval(watcher);
+
+            setTimeout(() => {
+
+                if (!completed) {
+                    startExam();
+                }
+
+            }, 100);
+
+        }
+
+    }, 100);
+}
+
+// --------------------
+// COMPLETION
+// --------------------
+
+window.addEventListener(
+    "message",
+    (e) => {
+
+        if (e.data === "done") {
+
+            completed = true;
+
+            if (
+                popup &&
+                !popup.closed
+            ) {
+                popup.close();
+            }
+
+            clearLock();
+
+            document.body.innerHTML =
+                "<h1>Unlocked</h1>";
+        }
+
+    }
+);
+
+// --------------------
+// AUTO START
+// --------------------
+
+window.onload = () => {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    if (
+        params.get("lock") === "true"
+    ) {
+        startExam();
+    }
+
+};
+
+</script>
+
+</body>
+</html>
